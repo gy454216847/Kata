@@ -12,7 +12,7 @@ namespace Kata.Items
     {
         public int Id =>2;
         public string SKU=>"B";
-        public int Price => 30;
-        public Dictionary<int, int> SpecialPrice => new Dictionary<int, int> { { 2, 45 } };
+        public decimal Price => 30;
+        public Dictionary<int, decimal> SpecialPrice => new Dictionary<int, decimal> { { 2, 45 } };
     }
 }

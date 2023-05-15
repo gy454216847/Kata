@@ -10,8 +10,8 @@ namespace Kata.Interface
     {
         public int Id { get; }
         public string SKU { get;  }
-        public int Price { get; }
+        public decimal Price { get; }
 
-        public Dictionary<int, int>? SpecialPrice { get; }
+        public Dictionary<int, decimal>? SpecialPrice { get; }
     }
 }

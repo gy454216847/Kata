@@ -14,8 +14,8 @@ namespace Kata.Items
 
         public string SKU => "D";
 
-        public int Price => 15;
+        public decimal Price => 15;
 
-        public Dictionary<int, int>? SpecialPrice => null;
+        public Dictionary<int, decimal>? SpecialPrice => null;
     }
 }

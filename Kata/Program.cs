@@ -38,7 +38,7 @@ namespace Kata
                 {
                     break;
                 }
-                int totalPrice = checkout.CalculateTotalPrice();
+                decimal totalPrice = checkout.CalculateTotalPrice();
                 Console.WriteLine($"Total Price:{totalPrice}");
             }
             Console.WriteLine("Exiting the program...");

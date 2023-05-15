@@ -57,13 +57,13 @@ namespace Kata
         /// Calculate total price
         /// </summary>
         /// <returns></returns>
-        public int CalculateTotalPrice()
+        public decimal CalculateTotalPrice()
         {
-            int totalPrice = 0;
+            decimal totalPrice = 0;
             //get item price and count
             foreach (var item in itemsStorage.Values)
             {
-                int unitPrice = item.Price;
+                decimal unitPrice = item.Price;
                 int itemCount = itemsScanned.GetValueOrDefault(item.SKU);
                 //if there is discount in item
                 if (item.SpecialPrice?.Any() == true)
@@ -72,7 +72,7 @@ namespace Kata
                     foreach (var discount in item.SpecialPrice)
                     {
                         int discountCount = discount.Key;
-                        int discountPrice = discount.Value;
+                        decimal discountPrice = discount.Value;
                         //get discount
                         if (itemCount >= discountCount)
                         {
