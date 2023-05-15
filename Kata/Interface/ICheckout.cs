@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kata.Interface
 {
-    public interface ICart
+    public interface ICheckout
     {
         public void Scan(string sku);
         public int TotalPrice();

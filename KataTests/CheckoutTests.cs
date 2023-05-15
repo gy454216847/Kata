@@ -14,12 +14,23 @@ namespace Kata.Tests
     [TestFixture()]
     public class CheckoutTests
     {
-        Checkout checkout = new();
+        Dictionary<string, int> itemsScanned;
+        Dictionary<string, IItem> itemsStorage;
+        private Checkout checkout;
+
+        public CheckoutTests()
+        {
+            itemsScanned = new Dictionary<string, int>();
+            itemsStorage = new Dictionary<string, IItem>();
+            checkout = new(itemsScanned, itemsStorage);
+        }
+
         [SetUp] 
         public void SetUp()
         {
             
-            checkout._itemsStorage=new Dictionary<string, IItem>
+            
+            checkout.itemsStorage=new Dictionary<string, IItem>
             {
                 {"A",new ItemA()},
                 {"B",new ItemB()},
@@ -83,7 +94,7 @@ namespace Kata.Tests
         [TearDown]
         public void TearDown()
         {
-            checkout._itemsScanned.Clear();
+            checkout.itemsScanned.Clear();
         }
     }
 }

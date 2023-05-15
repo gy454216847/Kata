@@ -10,34 +10,32 @@ using System.Threading.Tasks;
 
 namespace Kata
 {
-    public class Checkout : ICart
+    public class Checkout : ICheckout
     {
-        public Dictionary<string, int> _itemsScanned;
-        public Dictionary<string,IItem> _itemsStorage;
+        public  Dictionary<string, int> itemsScanned;
+        public  Dictionary<string, IItem> itemsStorage;
 
-
-
-        public Checkout()
+        public Checkout(Dictionary<string, int> itemsScanned, Dictionary<string, IItem> itemsStorage)
         {
-            _itemsScanned = new Dictionary<string, int>();
-            _itemsStorage = new Dictionary<string, IItem>();
+            this.itemsScanned = itemsScanned;
+            this.itemsStorage = itemsStorage;
         }
 
         public void Scan(string sku)
         {
-            if (!_itemsStorage.ContainsKey(sku))
+            if (!itemsStorage.ContainsKey(sku))
             {
                 throw new InvalidDataException("Invalid SKU");
             }
             else
             {
-                if (_itemsScanned.ContainsKey(sku))
+                if (itemsScanned.ContainsKey(sku))
                 {
-                    _itemsScanned[sku]++;
+                    itemsScanned[sku]++;
                 }
                 else
                 {
-                    _itemsScanned[sku] = 1;
+                    itemsScanned[sku] = 1;
                 }
             }
         }
@@ -48,10 +46,10 @@ namespace Kata
         {
             int totalPrice = 0;
 
-            foreach (var item in _itemsStorage.Values)
+            foreach (var item in itemsStorage.Values)
             {
                 int unitPrice = item.Price;
-                int itemCount = _itemsScanned.GetValueOrDefault(item.SKU);
+                int itemCount = itemsScanned.GetValueOrDefault(item.SKU);
                 if (item.SpecialPrice != null && item.SpecialPrice.Any())
                 {
 
