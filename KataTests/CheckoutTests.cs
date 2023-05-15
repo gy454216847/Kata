@@ -44,7 +44,7 @@ namespace Kata.Tests
         [Test()]
         public void CheckoutNothing()
         {
-            Assert.AreEqual(0,checkout.TotalPrice());
+            Assert.AreEqual(0,checkout.CalculateTotalPrice());
 
         }
 
@@ -53,7 +53,7 @@ namespace Kata.Tests
         {
 
             checkout.Scan("A");
-            Assert.AreEqual(50, checkout.TotalPrice());
+            Assert.AreEqual(50, checkout.CalculateTotalPrice());
         }
 
         [Test()]
@@ -61,7 +61,7 @@ namespace Kata.Tests
         {
             checkout.Scan("A");
             checkout.Scan("B");
-            Assert.AreEqual(80,checkout.TotalPrice());
+            Assert.AreEqual(80,checkout.CalculateTotalPrice());
         }
 
         [Test()]
@@ -71,13 +71,13 @@ namespace Kata.Tests
             checkout.Scan("D");
             checkout.Scan("B");
             checkout.Scan("A");
-            Assert.AreEqual(115, checkout.TotalPrice());
+            Assert.AreEqual(115, checkout.CalculateTotalPrice());
         }
         [Test()]
         public void Checkout_AA() { 
             checkout.Scan("A");
             checkout.Scan("A");
-            Assert.AreEqual(100,checkout.TotalPrice());
+            Assert.AreEqual(100,checkout.CalculateTotalPrice());
         
         }
         [Test()]
@@ -85,9 +85,11 @@ namespace Kata.Tests
             checkout.Scan("A");
             checkout.Scan("A");
             checkout.Scan("A");
-            Assert.AreEqual(130, checkout.TotalPrice());
-        
+            Assert.AreEqual(130, checkout.CalculateTotalPrice());      
         }
+
+        [Test()]
+
 
         
 

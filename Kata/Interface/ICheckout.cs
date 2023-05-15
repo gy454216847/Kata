@@ -9,6 +9,6 @@ namespace Kata.Interface
     public interface ICheckout
     {
         public void Scan(string sku);
-        public int TotalPrice();
+        public int CalculateTotalPrice();
     }
 }

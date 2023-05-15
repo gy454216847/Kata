@@ -1,12 +1,6 @@
 ﻿using Kata.Interface;
 using Kata.Items;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Kata
 {
     public class Program
@@ -25,14 +19,14 @@ namespace Kata
             };
             while (true)
             {
-                Console.WriteLine("Please enter the SKU:");
+                Console.WriteLine("Please enter the SKU (or leave empty to exit):");
                 string sku = Console.ReadLine();
                 if (string.IsNullOrEmpty(sku))
                 {
                     break;
                 }
                 checkout.Scan(sku);
-                int totalPrice = checkout.TotalPrice();
+                int totalPrice = checkout.CalculateTotalPrice();
                 Console.WriteLine($"Total Price:{totalPrice}");
             }
             Console.WriteLine("Exiting the program...");

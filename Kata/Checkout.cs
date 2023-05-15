@@ -43,7 +43,7 @@ namespace Kata
 
 
 
-        public int TotalPrice()
+        public int CalculateTotalPrice()
         {
             int totalPrice = 0;
 
@@ -51,7 +51,7 @@ namespace Kata
             {
                 int unitPrice = item.Price;
                 int itemCount = itemsScanned.GetValueOrDefault(item.SKU);
-                if (item.SpecialPrice != null && item.SpecialPrice.Any())
+                if (item.SpecialPrice?.Any()==true)
                 {
 
                     foreach (var discount in item.SpecialPrice)
@@ -64,7 +64,8 @@ namespace Kata
                             int regularCount = itemCount % discountCount;
                             int discountGroupCount = itemCount / discountCount;
                             totalPrice += discountGroupCount * discountPrice;
-                            itemCount = regularCount;
+                            itemCount= regularCount;
+                            break;
                         }
                         else
                         {
