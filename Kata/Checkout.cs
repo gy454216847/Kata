@@ -25,6 +25,7 @@ namespace Kata
         {
             if (!itemsStorage.ContainsKey(sku))
             {
+                Console.WriteLine("Invalid SKU");
                 throw new InvalidDataException("Invalid SKU");
             }
             else

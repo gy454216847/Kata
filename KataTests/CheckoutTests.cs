@@ -14,9 +14,9 @@ namespace Kata.Tests
     [TestFixture()]
     public class CheckoutTests
     {
-        Dictionary<string, int> itemsScanned;
-        Dictionary<string, IItem> itemsStorage;
-        private Checkout checkout;
+        private readonly Dictionary<string, int> itemsScanned;
+        private readonly Dictionary<string, IItem> itemsStorage;
+        private readonly Checkout checkout;
 
         public CheckoutTests()
         {
@@ -95,6 +95,7 @@ namespace Kata.Tests
         public void TearDown()
         {
             checkout.itemsScanned.Clear();
+            checkout.itemsStorage.Clear();
         }
     }
 }
